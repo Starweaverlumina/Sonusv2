@@ -1,0 +1,130 @@
+/* SoundDeck Pro - Custom Styles */
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Text shadow for pad labels */
+.text-shadow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom animations */
+@keyframes pulse-border {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-1deg);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.3s ease-in-out infinite alternate;
+}
+
+/* Playing state ring animation */
+.ring-pulse {
+  animation: pulse-border 0.6s ease-out infinite;
+}
+
+/* Safe area insets for mobile */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Canvas styling */
+canvas {
+  touch-action: none;
+}
+
+/* Dialog overlay improvements */
+[data-radix-dialog-overlay] {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Button active states */
+button:active {
+  transform: scale(0.96);
+}
+
+/* Prevent text selection */
+.no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Custom slider styling */
+[data-slot="slider-track"] {
+  background: #24243a !important;
+}
+
+[data-slot="slider-range"] {
+  background: #7b61ff !important;
+}
+
+[data-slot="slider-thumb"] {
+  background: #7b61ff !important;
+  border: none !important;
+}
+
+/* Progress bar styling */
+[data-slot="progress-indicator"] {
+  background: linear-gradient(90deg, #00e5a0, #7b61ff) !important;
+}
+
+/* Switch styling */
+[data-slot="switch-thumb"] {
+  background: white !important;
+}
+
+[data-state="checked"] [data-slot="switch-thumb"] {
+  background: #00e5a0 !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Focus styles */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #7b61ff;
+  outline-offset: 2px;
+}
+
+/* Toast styling override */
+[data-sonner-toast] {
+  background: #1c1c2e !important;
+  border: 1px solid #24243a !important;
+  color: #eeeef5 !important;
+}
